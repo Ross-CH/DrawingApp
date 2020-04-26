@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -41,6 +42,8 @@ namespace TMPro.Examples
         private float mouseY;
         private Vector3 moveVector;
         private float mouseWheel;
+        
+        private float moveSpeed = 0.01f;
 
         // Controls for Touches on Mobile devices
         //private float prev_ZoomDelta;
@@ -76,6 +79,13 @@ namespace TMPro.Examples
             }
         }
 
+        void FixedUpdate() {
+            MaxFollowDistance += moveSpeed;
+            FollowDistance += moveSpeed;
+        }
+
+        
+        
         // Update is called once per frame
         void LateUpdate()
         {
